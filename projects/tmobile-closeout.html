@@ -1,43 +1,80 @@
-<a href="/projects/tmobile-closeout.html" class="active">T-Mobile Automation</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>T-Mobile Close-Out Memo Automation – Zahraa Al</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Custom styles -->
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
   <header>
-    <nav class="nav">
-      <div class="nav-left">
-        <span class="logo">ZA</span>
-        <a href="/">Home</a>
-        <nav class="nav">
-  <div class="nav-left">
-    <span class="logo">ZA</span>
-    <a href="/">Home</a>
-    <div class="dropdown">
-        <button class="dropbtn">Projects ▼</button>
-        <div class="dropdown-content">
-            <a href="/projects/tmobile-closeout.html" class="active">T-Mobile Automation</a>
-            <a href="/projects/verizon-scip.html">Verizon SCIP</a>
-            <a href="/projects/noise-study.html">Noise Studies</a>
-            <a href="/projects/quickbase-automation.html">Quickbase</a>
-            <a href="/projects/inventory-system.html">Inventory</a>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-md border-bottom mb-3">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <span class="logo-badge me-2">ZA</span>
+          <span class="fw-semibold">Zahraa Al</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+
+            <!-- Projects dropdown -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="projectsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Projects
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="projectsDropdown">
+                <li><a class="dropdown-item active" aria-current="page" href="/projects/tmobile-closeout.html">T-Mobile Automation</a></li>
+                <li><a class="dropdown-item" href="/projects/verizon-scip.html">Verizon SCIP</a></li>
+                <li><a class="dropdown-item" href="/projects/noise-study.html">Noise Studies</a></li>
+                <li><a class="dropdown-item" href="/projects/quickbase-automation.html">Quickbase</a></li>
+                <li><a class="dropdown-item" href="/projects/inventory-system.html">Inventory</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/resume/Zahraa_Resume.pdf" target="_blank">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/zeealhelfie" target="_blank">GitHub</a>
+            </li>
+          </ul>
         </div>
-    </div>
-</div>
-
-  <div class="nav-right">
-    <a href="/resume/Zahraa_Resume.pdf" target="_blank">Resume</a>
-    <a href="https://github.com/zeealhelfie" target="_blank">GitHub</a>
-  </div>
-</nav>
-
-      </div>
-      <div class="nav-right">
-        <a href="https://github.com/zeealhelfie" target="_blank">GitHub</a>
       </div>
     </nav>
   </header>
@@ -120,11 +157,10 @@
         This is a simplified example of the pattern I used; identifiers and field IDs are anonymized.
       </p>
       <pre><code>mapping = {
-    709:  "E7",   # Project
-    1351: "E8",   # Site Code
-    1372: "I8",   # Market
-    244:  "I7",   # Plan Type + Project Code
-    # ...
+    709:  "E7",
+    1351: "E8",
+    1372: "I8",
+    244:  "I7",
 }
 
 def fill_template_from_qb(record, template_path, output_path):
@@ -142,4 +178,22 @@ def fill_template_from_qb(record, template_path, output_path):
       <h2>Impact</h2>
       <ul>
         <li>Reduced memo creation time from hours to minutes per site</li>
-        <li>Improved consistency across
+        <li>Improved consistency across all deliverables</li>
+        <li>Ensured data accuracy by standardizing field mappings</li>
+        <li>Saved project managers significant manual effort</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <a href="/">← Back to Home</a>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
