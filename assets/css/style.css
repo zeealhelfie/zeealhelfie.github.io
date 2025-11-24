@@ -61,10 +61,12 @@ h3 {
   margin-bottom: 16px;
 }
 
+/* slightly constrain sections so they line up nicely with body */
 .section {
   margin-top: 24px;
 }
 
+/* keep paragraphs tight under section headings */
 .section p {
   margin-top: 4px;
 }
@@ -89,7 +91,7 @@ ul {
   background: #eee;
 }
 
-/* --- Cards --- */
+/* --- Generic Cards (used on other pages) --- */
 .card {
   background: #fff;
   border: 1px solid #e3e3e3;
@@ -100,6 +102,46 @@ ul {
 
 .card h3 {
   margin-top: 0;
+}
+
+/* --- Projects cards (homepage) --- */
+/* Make project cards a bit nicer without affecting Bootstrap elsewhere */
+#projects .card {
+  border-radius: 12px;
+  border: 1px solid #e3e3e3;
+  /* override Bootstrap border-0 when used */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  background: #fff;
+  padding: 0; /* use .card-body for padding */
+}
+
+#projects .card-body {
+  padding: 16px 18px;
+}
+
+#projects .card-title {
+  margin-bottom: 0.35rem;
+}
+
+#projects .card-subtitle {
+  font-size: 0.9rem;
+}
+
+#projects .card-text {
+  font-size: 0.9rem;
+}
+
+#projects ul.card-text {
+  padding-left: 18px;
+}
+
+#projects .small {
+  font-size: 0.8rem;
+}
+
+/* give the intro paragraph in Projects a little more breathing room on small screens */
+#projects .text-muted {
+  font-size: 0.9rem;
 }
 
 /* --- Meta text & footer --- */
