@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>T-Mobile Close-Out Memo Automation – Zahraa Al</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <span class="logo">ZA</span>
+        <a href="/">Home</a>
+        <a href="/projects/tmobile-closeout.html" class="active">T-Mobile Automation</a>
+        <a href="/projects/verizon-scip.html">Verizon SCIP</a>
+        <a href="/projects/noise-study.html">Noise Studies</a>
+        <a href="/projects/quickbase-automation.html">Quickbase</a>
+        <a href="/projects/inventory-system.html">Inventory</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://github.com/zeealhelfie" target="_blank">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>T-Mobile Close-Out Memo Automation</h1>
+      <p class="meta">
+        Role: Internal tools & automation · Stack: Python, Google Cloud Functions, Quickbase, Box, Excel (openpyxl, pandas)
+      </p>
+      <p>
+        I built a cloud-based automation that takes project data from Quickbase, fills a standardized
+        T-Mobile Close-Out Memo Excel template, and uploads the finished memo to the correct Box folder
+        for that site. This replaced a very manual, error-prone process and turned it into a one-click
+        workflow for project managers.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Problem</h2>
+      <p>
+        Before this automation, each close-out memo had to be created by:
+      </p>
+      <ul>
+        <li>Manually pulling data from multiple Quickbase tables</li>
+        <li>Copy/pasting into an Excel template with many fields</li>
+        <li>Checking formatting, dates, naming conventions, and file locations</li>
+        <li>Manually saving and uploading the file to the correct Box folder</li>
+      </ul>
+      <p>
+        This process was slow, inconsistent, and difficult to scale when multiple sites
+        needed close-out memos at the same time.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Solution</h2>
+      <div class="card">
+        <h3>End-to-End Automated Workflow</h3>
+        <ul>
+          <li>Trigger from Quickbase (button, Pipeline, or report)</li>
+          <li>Cloud Function fetches project/site data via Quickbase API</li>
+          <li>Python script maps FIDs to specific cells in the Excel template</li>
+          <li>Memo is generated and saved with a standardized filename</li>
+          <li>File is uploaded to the correct Box project folder</li>
+          <li>Quickbase can be updated with a link or status flag</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Architecture</h2>
+      <p>
+        At a high level, the system looks like this:
+      </p>
+      <ul>
+        <li><strong>Quickbase</strong> – source of truth for project, site, and client data</li>
+        <li><strong>Quickbase Pipelines</strong> – triggers the automation via webhook</li>
+        <li><strong>Google Cloud Functions (Gen2)</strong> – runs the Python logic</li>
+        <li><strong>Excel template</strong> – formatted T-Mobile Close-Out Memo</li>
+        <li><strong>Box</strong> – storage for final deliverables by project/site</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Key Responsibilities</h2>
+      <ul>
+        <li>Designed and implemented the Python Cloud Function</li>
+        <li>Defined the FID → Excel cell mapping for the memo template</li>
+        <li>Handled date formatting, text cleanup, and validation logic</li>
+        <li>Integrated with Box API to place files in the correct folder</li>
+        <li>Collaborated with internal users to refine the template and workflow</li>
+        <li>Debugged deployment issues with Cloud Functions and IAM roles</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Sample Code (Redacted Example)</h2>
+      <p class="meta">
+        This is a simplified example of the pattern I used; identifiers and field IDs are anonymized.
+      </p>
+      <pre><code>mapping = {
+    709:  "E7",   # Project
+    1351: "E8",   # Site Code
+    1372: "I8",   # Market
+    244:  "I7",   # Plan Type + Project Code
+    # ...
+}
+
+def fill_template_from_qb(record, template_path, output_path):
+    wb = openpyxl.load_workbook(template_path)
+    ws = wb.active
+
+    for fid, cell in mapping.items():
+        value = record.get(str(fid))
+        ws[cell] = value
+
+    wb.save(output_path)</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Reduced memo creation time from hours to minutes per site</li>
+        <li>Improved consistency across
