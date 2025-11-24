@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verizon SCIP Template Automation – Zahraa Al</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <span class="logo">ZA</span>
+        <a href="/">Home</a>
+        <a href="/projects/tmobile-closeout.html">T-Mobile Automation</a>
+        <a href="/projects/verizon-scip.html" class="active">Verizon SCIP</a>
+        <a href="/projects/noise-study.html">Noise Studies</a>
+        <a href="/projects/quickbase-automation.html">Quickbase</a>
+        <a href="/projects/inventory-system.html">Inventory</a>
+      </div>
+      <div class="nav-right">
+        <a href="https://github.com/zeealhelfie" target="_blank">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Verizon SCIP Template Automation</h1>
+      <p class="meta">
+        Role: Internal tools & automation · Stack: Python, Quickbase API, Excel templating, data cleanup
+      </p>
+      <p>
+        I built tooling around the Verizon SCIP template to automatically pull project and equipment data
+        from Quickbase, clean and transform it, and populate a structured SCIP workbook. The goal was to
+        reduce manual data entry, enforce consistent naming, and make it easier to submit accurate SCIP
+        packages for Verizon sites.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Problem</h2>
+      <p>
+        The Verizon SCIP template requires a large amount of structured data:
+        site details, equipment lists, naming conventions, and other metadata.
+        Originally, this information was spread across multiple Quickbase tables
+        and had to be manually copied into the template.
+      </p>
+      <ul>
+        <li>Copy/pasting from Quickbase reports into multiple SCIP tabs</li>
+        <li>Risk of typos, missing fields, and inconsistent naming</li>
+        <li>Time-consuming when processing multiple sites</li>
+        <li>Difficult to maintain mappings as the template evolved</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Solution</h2>
+      <div class="card">
+        <h3>Data-Driven SCIP Generator</h3>
+        <ul>
+          <li>Use Quickbase API to pull the necessary records into a pandas DataFrame</li>
+          <li>Normalize and clean the data (types, naming conventions, IDs)</li>
+          <li>Map Quickbase fields into specific locations in the SCIP workbook</li>
+          <li>Handle edge cases (missing values, mismatched types, optional fields)</li>
+          <li>Produce a ready-to-review SCIP file for each site</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Architecture</h2>
+      <p>
+        The automation is organized around a clear separation of concerns:
+      </p>
+      <ul>
+        <li><strong>Quickbase layer:</strong> API calls and field selection</li>
+        <li><strong>Data layer:</strong> pandas DataFrames for cleaning and transformation</li>
+        <li><strong>Mapping layer:</strong> dictionary that maps field labels/IDs to SCIP cells</li>
+        <li><strong>Template layer:</strong> openpyxl-based writer into the Verizon SCIP workbook</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Key Responsibilities</h2>
+      <ul>
+        <li>Defined which Quickbase fields are required for the SCIP template</li>
+        <li>Wrote Python functions to query Quickbase and normalize the results</li>
+        <li>Created mapping logic so changes in the template are easy to maintain</li>
+        <li>Debugged issues with field types (text vs numeric, URLs vs IDs, etc.)</li>
+        <li>Improved error handling to make it easier to see what’s missing or invalid</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Sample Code (Redacted Example)</h2>
+      <p class="meta">
+        This example shows the pattern I use to pull Quickbase data into pandas and map it into a template.
+        Field names and IDs are anonymized.
+      </p>
+      <pre><code>import requests
+import pandas as pd
+import openpyxl
+
+def qb_dataframe(headers, table_id, field_map, where):
+    r = requests.post(
+        "https://api.quickbase.com/v1/records/query",
+        headers=headers,
+        json={
+            "from": table_id,
+            "select": list(field_map.keys()),
+            "where": where,
+        },
+    )
+    df = pd.json_normalize(r.json()["data"])
+    df.columns = df.columns.str.replace(".value", "", regex=True)
+
+    # Rename numeric FIDs to human-readable labels
+    col_names = []
+    for fid in map(int, list(df.columns)):
+        col_names.append(field_map[fid])
+    df.columns = col_names
+    return df
+
+def fill_scip_template(row, template_path, output_path, mapping):
+    wb = openpyxl.load_workbook(template_path)
+    ws = wb.active
+
+    for label, cell in mapping.items():
+        ws[cell] = row.get(label)
+
+    wb.save(output_path)</code></pre>
+    </section>
+
+    <section class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Reduced manual SCIP preparation time and repetitive data entry</li>
+        <li>Improved consistency of site naming and equipment descriptions</li>
+        <li>Made it easier to extend the workflow to additional projects/sites</li>
+        <li>Laid the groundwork for more automation around carrier deliverables</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Related Skills Demonstrated</h2>
+      <div class="pill-row">
+        <span class="pill">Quickbase API</span>
+        <span class="pill">pandas DataFrames</span>
+        <span class="pill">Excel templating (openpyxl)</span>
+        <span class="pill">Data cleaning</span>
+        <span class="pill">Mapping & transformation logic</span>
+        <span class="pill">Error handling</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="/">← Back to Home</a>
+  </footer>
+</body>
+</html>
