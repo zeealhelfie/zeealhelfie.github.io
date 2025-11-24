@@ -159,6 +159,56 @@ pre {
 code {
   font-family: Menlo, Monaco, "SF Mono", Consolas, "Liberation Mono", monospace;
 }
+/* --- Dropdown Menu --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: #444;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.dropbtn:hover {
+  background: #f0f0f0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  margin-top: 4px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px 14px;
+  color: #444;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+/* show menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* --- Responsive --- */
 @media (max-width: 640px) {
