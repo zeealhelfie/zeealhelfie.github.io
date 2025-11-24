@@ -66,6 +66,60 @@ main {
   color: #fff;
 }
 
+/* --- Dropdown Menu --- */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: #444;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.dropbtn:hover {
+  background: #f0f0f0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px); /* attaches menu directly under button */
+  left: 0;
+  background-color: #fff;
+  min-width: 220px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+  margin-top: 0; /* remove hover gap */
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 8px 14px;
+  color: #444;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Keep menu open on hover AND on focus (trackpad / keyboard / click support) */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
 /* --- Typography & sections --- */
 h1 {
   font-size: 2.2rem;
@@ -158,56 +212,6 @@ pre {
 
 code {
   font-family: Menlo, Monaco, "SF Mono", Consolas, "Liberation Mono", monospace;
-}
-/* --- Dropdown Menu --- */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropbtn {
-  background: none;
-  border: none;
-  font-size: 0.9rem;
-  color: #444;
-  cursor: pointer;
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-family: inherit;
-}
-
-.dropbtn:hover {
-  background: #f0f0f0;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 220px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 1000;
-  margin-top: 4px;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 8px 14px;
-  color: #444;
-  text-decoration: none;
-  font-size: 0.9rem;
-  border-radius: 0;
-}
-
-.dropdown-content a:hover {
-  background-color: #f0f0f0;
-}
-
-/* show menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
 }
 
 /* --- Responsive --- */
