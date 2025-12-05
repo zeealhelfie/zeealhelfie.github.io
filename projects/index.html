@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects – Zahraa Al</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Adjust path if your CSS is linked differently -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <a href="/">ZA</a>
+    </div>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/projects/">Projects</a>
+      <a href="/resume/Zahraa_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="https://github.com/zeealhelfie" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <h1>Projects</h1>
+    <p>
+      I build automation and integration tooling around telecom deliverables, HR systems,
+      finance workflows, and Quickbase apps — mostly using Python, Google Cloud Functions,
+      Quickbase, and Excel/Box integrations.
+    </p>
+    <p>
+      This page groups my work into themes and shows how individual cloud functions, pipelines,
+      and templates fit into bigger systems.
+    </p>
+
+    <hr />
+
+    <!-- HR & Timekeeping -->
+    <section id="hr-timekeeping">
+      <h2>HR &amp; Timekeeping Automations (Kronos + Quickbase)</h2>
+      <p>
+        A suite of automations around Kronos and Quickbase to keep HR data accurate
+        without manual data entry.
+      </p>
+      <ul>
+        <li>
+          <strong>Kronos Weekly Timesheets Sync</strong>
+          (<code>kronos_timesheets</code>) – Google Cloud Function that updates weekly
+          timesheet records in Quickbase from Kronos data.
+        </li>
+        <li>
+          <strong>Kronos Holiday Calendar Automation</strong>
+          (<code>kronos_holiday</code>) – Automates holiday-related logic so HR rules are
+          consistently applied.
+        </li>
+        <li>
+          <strong>Employee Out-of-Office to HR Sync</strong>
+          (<code>kronos-outofoffice-email</code>) – Reads employee out-of-office / off work
+          info and pushes a weekly summary to HR/Quickbase.
+        </li>
+        <li>
+          <strong>Kronos Connector Pipeline</strong>
+          (<code>kronos-connector-pipeline</code>) – Integration pipeline that glues together
+          Kronos, Quickbase, and cloud functions so data flows automatically.
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- Finance & Procurement -->
+    <section id="finance-procurement">
+      <h2>Finance &amp; Procurement Automation (Ariba + Bulk Uploads)</h2>
+      <p>
+        Tools that help finance and project teams work with Ariba data and large sets
+        of PO lines without copy/paste.
+      </p>
+
+      <h3>Finance Bulk Upload &amp; Ariba Integration Toolkit</h3>
+      <p>
+        A group of scripts and bulk-upload tools that move structured PO data into our
+        finance system:
+      </p>
+      <ul>
+        <li><code>verizon_ariba_import</code> – GCP data import for Verizon Ariba feeds</li>
+        <li><code>verizon_ariba_core_sync</code> – keeps internal “core” data in sync with Ariba</li>
+        <li><code>PO_Line_Codes</code> – bulk upload for finance</li>
+        <li><code>POLineItems</code> – bulk upload for finance</li>
+        <li><code>pricing_table</code> – bulk upload for finance</li>
+        <li><code>PurchaseOrder&amp;ChangeOrderRequest</code> – bulk upload for finance</li>
+        <li><code>Quotes_and_POR</code> – bulk upload for finance</li>
+        <li><code>Vendor_PO_Line_Items</code> – bulk upload for finance</li>
+      </ul>
+      <p>
+        Together, these replace manual spreadsheet massaging and let finance ingest PO
+        and pricing data in a repeatable way.
+      </p>
+
+      <p>
+        <strong>New Award &amp; PO Line Notifications from Ariba</strong> – Notifications when
+        new project awards or new PO lines arrive from Ariba, so project managers and finance
+        don’t miss changes buried in the portal.
+      </p>
+    </section>
+
+    <hr />
+
+    <!-- Document & Compliance -->
+    <section id="document-compliance">
+      <h2>Document &amp; Compliance Automation (Telecom)</h2>
+      <p>
+        These projects turn carrier deliverables and compliance documents into automated workflows.
+      </p>
+
+      <ul>
+        <li>
+          <strong><a href="/projects/tmobile-closeout.html">T-Mobile Close-Out Memo Automation</a></strong>
+          (<code>tmobile_close_out_memo</code>) – Takes project data from Quickbase, fills a
+          standardized T-Mobile Close-Out Memo template, and uploads the finished memo to the
+          correct Box folder.
+        </li>
+        <li>
+          <strong><a href="/projects/verizon-scip.html">Verizon SCIP Template Automation</a></strong>
+          (<code>vz-scip-template</code>) – Pulls data from Quickbase, cleans and transforms it
+          with pandas, and maps it into a structured Verizon SCIP workbook.
+        </li>
+        <li>
+          <strong>T-Mobile HMBP Notification &amp; Documents</strong>
+          (<code>tmo-hmbp-notification</code>) – Automation for generating and managing
+          HMBP-related documents/forms and notifying the right people.
+        </li>
+        <li>
+          <strong>T-Mobile CPUC/CLON File Automation</strong>
+          (<code>tmobile_cpuclon_file</code>) – Generates CPUC/CLON or similar regulatory files
+          automatically from project/site data.
+        </li>
+        <li>
+          <strong>Core Telecom Noise Study Templates</strong>
+          (<code>core-noise-study</code>) – Reusable noise study templates for jurisdictions
+          like Bakersfield, Santa Rosa, and Santa Cruz.
+          See: <a href="/projects/noise-study.html">Noise Study project page</a>.
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- Integrations & utility -->
+    <section id="integrations">
+      <h2>Integrations &amp; Utility Pipelines</h2>
+      <ul>
+        <li>
+          <strong>Editable Description Pipeline</strong>
+          (<code>editable-copy-of-description</code>) – Quickbase/Pipeline utility that lets
+          users work with editable copies of descriptions while keeping system-of-record fields
+          clean.
+        </li>
+        <li>
+          <strong>Core Sync &amp; Glue Services</strong> – Additional sync jobs (for example,
+          <code>verizon_ariba_core_sync</code>) and pipelines that keep Quickbase, Ariba, and
+          other systems aligned so the automations above always see current data.
+        </li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <!-- Quickbase architecture -->
+    <section id="quickbase-architecture">
+      <h2>Quickbase Architecture &amp; Internal Tools</h2>
+      <p>
+        Many of these automations depend on carefully designed Quickbase apps.
+      </p>
+      <ul>
+        <li>
+          <strong><a href="/projects/quickbase-automation.html">Quickbase Integrations &amp; Internal Tools</a></strong>
+          – Tables, relationships, forms, formulas, and reports that support:
+          <ul>
+            <li>Pay-period and HR logic for timekeeping</li>
+            <li>Project / site / client structures for telecom deliverables</li>
+            <li>Fields mapped into Excel/Word templates and finance bulk uploads</li>
+          </ul>
+        </li>
+        <li>
+          <strong><a href="/projects/inventory-system.html">Inventory &amp; Office Liquidation Tools</a></strong>
+          – Tools and spreadsheets to track office assets (chairs, desks, monitors, cabinets, etc.),
+          export structured inventory lists, and support resale or liquidation processes.
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© Zahraa Al · Hosted on GitHub Pages</p>
+  </footer>
+</body>
+</html>
