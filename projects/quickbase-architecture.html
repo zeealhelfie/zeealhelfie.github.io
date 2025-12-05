@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quickbase Architecture & Internal Tools – Zahraa Al</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md border-bottom mb-3">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <span class="logo-badge me-2">ZA</span>
+          <span class="fw-semibold">Zahraa Al</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="/projects/"
+                id="projectsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Projects
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="projectsDropdown">
+                <li><a class="dropdown-item" href="/projects/">All Projects</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/projects/tmobile-closeout.html">T-Mobile Automation</a></li>
+                <li><a class="dropdown-item" href="/projects/verizon-scip.html">Verizon SCIP</a></li>
+                <li><a class="dropdown-item" href="/projects/noise-study.html">Noise Studies</a></li>
+                <li><a class="dropdown-item" href="/projects/quickbase-automation.html">Quickbase</a></li>
+                <li><a class="dropdown-item" href="/projects/inventory-system.html">Inventory</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/resume/Zahraa_Resume.pdf" target="_blank">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/zeealhelfie" target="_blank">GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Quickbase Architecture &amp; Internal Tools</h1>
+      <p class="meta">
+        Role: Quickbase admin &amp; solution designer · Stack: Quickbase, formulas, Pipelines, Excel, APIs
+      </p>
+      <p>
+        Most of my automations sit on top of Quickbase apps that I designed and maintain. I build
+        the tables, relationships, forms, and formula fields that make it possible to drive
+        documents, workflows, and reports directly from structured data.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Core Quickbase Design Work</h2>
+      <p>
+        I’ve designed and maintained several Quickbase applications that support:
+      </p>
+      <ul>
+        <li>Employee and HR data (for timesheets, pay cycles, and holidays).</li>
+        <li>Project and site structures for telecom work (T-Mobile, Verizon, etc.).</li>
+        <li>Fields mapped directly into Excel/Word templates and automation scripts.</li>
+      </ul>
+      <p>
+        This includes decisions about field types, relationships, lookup fields, summary fields,
+        and how data should be surfaced on forms and reports.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Quickbase Integrations &amp; Internal Tools</h2>
+      <p>
+        On top of the schema design, I build internal tools and reports that make Quickbase easier
+        to use for non-technical team members:
+      </p>
+      <ul>
+        <li>Forms optimized for project managers, HR, and finance workflows.</li>
+        <li>Formula fields that calculate derived values (e.g., pay-period logic, status).</li>
+        <li>Reports that power dashboards and drive automation triggers.</li>
+        <li>Integration points that connect to Google Cloud Functions and Box.</li>
+      </ul>
+      <p>
+        See also: <a href="/projects/quickbase-automation.html">Quickbase Automation project page</a>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Inventory &amp; Office Liquidation Tools</h2>
+      <p>
+        I also designed tools to track physical assets (chairs, desks, monitors, cabinets, etc.)
+        and support office inventory and liquidation planning.
+      </p>
+      <ul>
+        <li>Structured Excel templates for capturing item details and conditions.</li>
+        <li>Quickbase fields for item type, location, value, and resale status.</li>
+        <li>Reports that group items by category for potential sale or reuse.</li>
+      </ul>
+      <p>
+        See also: <a href="/projects/inventory-system.html">Inventory project page</a>.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Created a solid data foundation for multiple automations and reports.</li>
+        <li>Reduced the need for one-off spreadsheets by centralizing logic in Quickbase.</li>
+        <li>Made it easier for other team members to self-serve the data they need.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Skills Demonstrated</h2>
+      <div class="pill-row">
+        <span class="pill">Quickbase app design</span>
+        <span class="pill">Data modeling</span>
+        <span class="pill">Formula fields</span>
+        <span class="pill">Reports &amp; dashboards</span>
+        <span class="pill">Integration architecture</span>
+        <span class="pill">Excel/Quickbase alignment</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/projects/">&larr; Back to Projects</a>
+      &nbsp;·&nbsp;
+      <span>Last updated by Zahraa · Hosted on GitHub Pages</span>
+    </p>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

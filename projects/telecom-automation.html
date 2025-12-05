@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Telecom Document & Compliance Automation – Zahraa Al</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md border-bottom mb-3">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <span class="logo-badge me-2">ZA</span>
+          <span class="fw-semibold">Zahraa Al</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="/projects/"
+                id="projectsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Projects
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="projectsDropdown">
+                <li><a class="dropdown-item" href="/projects/">All Projects</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/projects/tmobile-closeout.html">T-Mobile Automation</a></li>
+                <li><a class="dropdown-item" href="/projects/verizon-scip.html">Verizon SCIP</a></li>
+                <li><a class="dropdown-item" href="/projects/noise-study.html">Noise Studies</a></li>
+                <li><a class="dropdown-item" href="/projects/quickbase-automation.html">Quickbase</a></li>
+                <li><a class="dropdown-item" href="/projects/inventory-system.html">Inventory</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/resume/Zahraa_Resume.pdf" target="_blank">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/zeealhelfie" target="_blank">GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Telecom Document &amp; Compliance Automation</h1>
+      <p class="meta">
+        Role: Internal tools, document automation &amp; compliance · Stack: Python, Quickbase, Excel/Word, Box, pandas, openpyxl
+      </p>
+      <p>
+        I design automations that generate carrier-required deliverables from structured project data.
+        Instead of manually filling templates for each site, project managers can trigger a workflow
+        that produces compliant close-out memos, SCIP workbooks, and noise studies with one click.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Key Projects</h2>
+
+      <div class="card">
+        <h3><a href="/projects/tmobile-closeout.html">T-Mobile Close-Out Memo Automation</a></h3>
+        <p>
+          Cloud-based workflow that takes data from Quickbase, fills a standardized T-Mobile Close-Out Memo
+          Excel template, and uploads the result to the appropriate Box folder.
+        </p>
+        <p class="meta">
+          Stack: Python · Google Cloud Functions · Quickbase API · openpyxl · Box SDK
+        </p>
+      </div>
+
+      <div class="card">
+        <h3><a href="/projects/verizon-scip.html">Verizon SCIP Template Automation</a></h3>
+        <p>
+          Automation that pulls site and equipment data from Quickbase, cleans and transforms it with pandas,
+          and writes into a structured Verizon SCIP workbook.
+        </p>
+        <p class="meta">
+          Stack: Python · Quickbase API · pandas · openpyxl · Excel templating
+        </p>
+      </div>
+
+      <div class="card">
+        <h3><a href="/projects/noise-study.html">Telecom Noise Study Templates</a></h3>
+        <p>
+          Reusable noise study templates for jurisdictions like Bakersfield, Santa Rosa, and Santa Cruz that
+          combine manufacturer noise data with local municipal code requirements.
+        </p>
+        <p class="meta">
+          Focus: Technical writing · dBA calculations · code/ordinance research · template design
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Additional Automations</h2>
+      <ul>
+        <li><strong>T-Mobile HMBP Notification &amp; Documents</strong> (<code>tmo-hmbp-notification</code>) – automates the creation/notification process around HMBP-related forms.</li>
+        <li><strong>T-Mobile CPUC/CLON File Automation</strong> (<code>tmobile_cpuclon_file</code>) – generates CPUC/CLON or similar regulatory files from project and site data.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Common Architecture Patterns</h2>
+      <ul>
+        <li>Quickbase as the source of truth for project, site, and equipment data.</li>
+        <li>Python (often on Google Cloud Functions) to transform and validate data.</li>
+        <li>Excel and Word templates as the base for carrier-required deliverables.</li>
+        <li>Box as the final storage and distribution location.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Reduced hours of manual document preparation per site.</li>
+        <li>Improved consistency and compliance across all deliverables.</li>
+        <li>Easier to scale when multiple sites and carriers are active at once.</li>
+        <li>Created a pattern for future document automations.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Skills Demonstrated</h2>
+      <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">Google Cloud Functions</span>
+        <span class="pill">Quickbase API</span>
+        <span class="pill">Excel &amp; Word templating</span>
+        <span class="pill">pandas &amp; openpyxl</span>
+        <span class="pill">Telecom deliverables &amp; compliance</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/projects/">&larr; Back to Projects</a>
+      &nbsp;·&nbsp;
+      <span>Last updated by Zahraa · Hosted on GitHub Pages</span>
+    </p>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

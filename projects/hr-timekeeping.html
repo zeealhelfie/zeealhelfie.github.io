@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HR & Timekeeping Automations – Zahraa Al</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md border-bottom mb-3">
+      <div class="container-fluid px-0">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <span class="logo-badge me-2">ZA</span>
+          <span class="fw-semibold">Zahraa Al</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="/projects/"
+                id="projectsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Projects
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="projectsDropdown">
+                <li><a class="dropdown-item" href="/projects/">All Projects</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="/projects/tmobile-closeout.html">T-Mobile Automation</a></li>
+                <li><a class="dropdown-item" href="/projects/verizon-scip.html">Verizon SCIP</a></li>
+                <li><a class="dropdown-item" href="/projects/noise-study.html">Noise Studies</a></li>
+                <li><a class="dropdown-item" href="/projects/quickbase-automation.html">Quickbase</a></li>
+                <li><a class="dropdown-item" href="/projects/inventory-system.html">Inventory</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/resume/Zahraa_Resume.pdf" target="_blank">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/zeealhelfie" target="_blank">GitHub</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>HR &amp; Timekeeping Automations (Kronos + Quickbase)</h1>
+      <p class="meta">
+        Role: Internal tools &amp; automation · Stack: Python, Google Cloud Functions, Kronos, Quickbase, Pipelines
+      </p>
+      <p>
+        I built a suite of automations around Kronos and Quickbase to keep timesheets, holidays,
+        and out-of-office information accurate without manual data entry. These functions reduce
+        repetitive work for HR and managers and make it easier to trust the data in our systems.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Context &amp; Problem</h2>
+      <p>
+        HR and timekeeping workflows involve multiple systems: Kronos for time entry, Quickbase
+        for tracking projects and employees, and internal processes for pay periods, holidays,
+        and approvals. Originally, much of the synchronization was done manually:
+      </p>
+      <ul>
+        <li>Exporting data out of Kronos and importing into Quickbase</li>
+        <li>Manually adjusting for holidays and special pay rules</li>
+        <li>Copying out-of-office information into tracking sheets</li>
+        <li>Reconciling discrepancies across systems at the end of each pay period</li>
+      </ul>
+      <p>
+        This was time-consuming, error-prone, and difficult to scale as more employees and projects were added.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Key Automations</h2>
+
+      <h3>Kronos Weekly Timesheets Sync (<code>kronos_timesheets</code>)</h3>
+      <p>
+        A Google Cloud Function that runs on a schedule and updates weekly timesheet records
+        in Quickbase using data from Kronos.
+      </p>
+      <ul>
+        <li>Pulls Kronos data for the current pay period or week</li>
+        <li>Maps employees and project codes to Quickbase records</li>
+        <li>Writes or updates time entry records in the <code>EMPLOYEE_WEEKLY_TIMESHEETS</code> table</li>
+        <li>Applies logic for weeks that run Saturday → Friday</li>
+      </ul>
+
+      <h3>Kronos Holiday Calendar Automation (<code>kronos_holiday</code>)</h3>
+      <p>
+        Automation that ensures holiday schedules and HR rules are consistently applied.
+      </p>
+      <ul>
+        <li>Identifies holiday dates and marks them correctly in Quickbase</li>
+        <li>Supports pay-period logic and avoids manual overrides</li>
+        <li>Makes downstream reporting and approvals more accurate</li>
+      </ul>
+
+      <h3>Employee Out-of-Office → HR Sync (<code>kronos-outofoffice-email</code>)</h3>
+      <p>
+        Weekly automation that reads out-of-office or off-work data and updates HR tracking.
+      </p>
+      <ul>
+        <li>Collects OOO / off-work information</li>
+        <li>Summarizes it into a structured format for HR</li>
+        <li>Updates Quickbase so managers have a centralized view</li>
+      </ul>
+
+      <h3>Kronos Connector Pipeline (<code>kronos-connector-pipeline</code>)</h3>
+      <p>
+        Glue layer between Kronos, Quickbase, and my cloud functions.
+      </p>
+      <ul>
+        <li>Handles triggering logic (per week or pay period)</li>
+        <li>Coordinates data flows into the right Quickbase tables</li>
+        <li>Reduces the number of manual touchpoints in the workflow</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Architecture Overview</h2>
+      <ul>
+        <li><strong>Kronos</strong> – source of time entries and schedule information.</li>
+        <li><strong>Google Cloud Functions</strong> – Python services to transform and load data.</li>
+        <li><strong>Quickbase</strong> – system-of-record for employees, projects, and timesheets.</li>
+        <li><strong>Quickbase Pipelines / Webhooks</strong> – triggers and glue between systems.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Reduced manual HR data entry for weekly timesheets.</li>
+        <li>Improved consistency of pay-period and holiday handling.</li>
+        <li>Gave managers a more reliable view of who is available or out-of-office.</li>
+        <li>Created a foundation for future HR-related automation on top of Quickbase.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>Skills Demonstrated</h2>
+      <div class="pill-row">
+        <span class="pill">Python</span>
+        <span class="pill">Google Cloud Functions</span>
+        <span class="pill">APIs &amp; integrations</span>
+        <span class="pill">Quickbase API &amp; Pipelines</span>
+        <span class="pill">Scheduling &amp; cron logic</span>
+        <span class="pill">Data modeling for HR</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/projects/">&larr; Back to Projects</a>
+      &nbsp;·&nbsp;
+      <span>Last updated by Zahraa · Hosted on GitHub Pages</span>
+    </p>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>
