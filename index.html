@@ -17,7 +17,7 @@
       crossorigin="anonymous"
     />
 
-    <!-- Your custom styles (overrides Bootstrap where needed) -->
+    <!-- styles (overrides Bootstrap where needed) -->
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -49,31 +49,28 @@
             </li>
 
             <!-- Projects dropdown -->
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="/projects/"              <!-- 👈 now points to main projects page -->
-                id="projectsDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Projects
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="projectsDropdown">
-                <!-- Optional: overview link inside dropdown -->
-                <li>
-                  <a class="dropdown-item" href="/projects/">All Projects</a>
-                </li>
-                <li><hr class="dropdown-divider" /></li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="/projects/"
+              id="projectsDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Projects
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="projectsDropdown">
+              <li><a class="dropdown-item" href="/projects/">All Projects</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="/projects/tmobile-closeout.html">T-Mobile Automation</a></li>
+              <li><a class="dropdown-item" href="/projects/verizon-scip.html">Verizon SCIP</a></li>
+              <li><a class="dropdown-item" href="/projects/noise-study.html">Noise Studies</a></li>
+              <li><a class="dropdown-item" href="/projects/quickbase-automation.html">Quickbase</a></li>
+              <li><a class="dropdown-item" href="/projects/inventory-system.html">Inventory</a></li>
+            </ul>
+          </li>
 
-                <li><a class="dropdown-item" href="/projects/tmobile-closeout.html">T-Mobile Automation</a></li>
-                <li><a class="dropdown-item" href="/projects/verizon-scip.html">Verizon SCIP</a></li>
-                <li><a class="dropdown-item" href="/projects/noise-study.html">Noise Studies</a></li>
-                <li><a class="dropdown-item" href="/projects/quickbase-automation.html">Quickbase</a></li>
-                <li><a class="dropdown-item" href="/projects/inventory-system.html">Inventory</a></li>
-              </ul>
-            </li>
           </ul>
 
           <ul class="navbar-nav ms-auto mb-2 mb-md-0">
